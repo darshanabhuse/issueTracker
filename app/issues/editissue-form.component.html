@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Edit Issue</h1>
+  <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+    <div class="form-group">
+      <label for="name">Issue Description</label>
+      <input type="text" class="form-control" id="name" name="name" [value]="editissue[0].Discription" [(ngModel)]="editissue[0].Discription" required minlength="3">
+    </div>
+    <div class="form-group">
+      <label for="Priority">Priority</label>
+      <select class="form-control" name="Priority" [ngModel]="editissue[0].Priority">
+        <option *ngFor="let priority of Priority" [value]="priority">
+          {{priority}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+        <label for="Status">Status</label>
+        <select class="form-control" name="Status" [ngModel]="editissue[0].Status">
+          <option *ngFor="let status of Status" [value]="status">
+            {{status}}
+          </option>
+        </select>
+      </div>
+    <button type="submit" class="btn btn-info">Submit</button>
+  </form>
+</div>
